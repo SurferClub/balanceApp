@@ -30,10 +30,12 @@ export const GlobalProvider = ({ children }) => {
       payload: id,
     });
     
-  const addTransaction = () =>
+  const addTransaction = (transaction) =>
     {
-        console.log('addTRansaction')
-    }
+      dispatch({
+        type: "ADD_TRANSACTION",
+        payload: transaction
+      })    }
 
   return (
     <Context.Provider
