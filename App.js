@@ -5,6 +5,7 @@ import { ProgressBarAndroidComponent, StyleSheet, Text, View } from 'react-nativ
 import Resumen from './components/Resumen'
 import {GlobalProvider} from './context/GlobalState2'
 import IncomeExpense from './components/IncomeExpense'
+import ExpenseChart from './components/ExpenseChart'
 
 export default function App() {
   return (
@@ -13,8 +14,13 @@ export default function App() {
       <View style={styles.background}>
         <View style={styles.container}>
           <View style={styles.containerRow}>
-              <Resumen/>
-              <IncomeExpense/>
+              <View>
+                <Resumen/>
+                <IncomeExpense/>
+              </View>
+              <View style={styles.pie}>
+                  <ExpenseChart />
+              </View>
           </View>
           <Balance/>
           </View>
@@ -22,13 +28,16 @@ export default function App() {
               <ImageViewer/>
           </View>
       </View>
-        
     </GlobalProvider> 
 </>
   );
 }
 
 const styles = StyleSheet.create({
+  pie:{
+    width:'50%',
+
+  },
   background:{
     flex:1,
     backgroundColor: 'black',
@@ -50,9 +59,11 @@ const styles = StyleSheet.create({
     padding: 20
   },  */
   containerRow: {
+    flex:1,
     flexDirection: 'row',
     justifyContent:'center',
     backgroundColor: '',
+    padding:10,
   },
   containerBalance: {
     maxWidth: 200,
