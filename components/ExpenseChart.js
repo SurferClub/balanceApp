@@ -7,21 +7,28 @@ function ExpenseChart() {
     const {transactions} =  useGlobalState()
     const total = transactions.reduce((acc,transaction)=>(acc += transaction.amount))
     
-    const totalIncome = transactions.filter(transaction=> transaction.amount >0)
-    .reduce((acc,transaction)=>(acc += transaction.amount),0)
+    const totalIncome = 
+        transactions
+            .filter((transaction)=> transaction.monto > 0)
+            .reduce((acc,transaction)=>(acc += transaction.monto),0)
 
-    const totalExpenses = transactions.filter(transaction=> transaction.amount < 0)
-    .reduce((acc,transaction)=>(acc += transaction.amount),0)*-1
+    const totalExpenses = 
+        transactions
+            .filter((transaction)=> transaction.monto < 0)
+            .reduce((acc,transaction)=>(acc += transaction.monto),0)*-1
+
 
     const totalExpensesPercentage = Math.round((totalExpenses / totalIncome)*100)
-console.log(totalExpensesPercentage)
+    console.log(totalExpensesPercentage)
 
+    const totalIncomePercentage = 100 - totalExpensesPercentage
+    console.log(totalIncomePercentage)
     return (
     <VictoryPie 
         colorScale={["#e74c3c", "#2ecc71"]}
     data={[
-        {x: 'Expenses', y: 40},
-        {x: 'Incomes', y: 40},
+        {x: 'Expenses', y: totalExpensesPercentage},
+        {x: 'Incomes', y: totalIncomePercentage},
     ]}
         animate={{
             duration: 200

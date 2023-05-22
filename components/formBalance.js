@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         padding: 40,
-        maxWidth:500,
+        maxWidth: 500,
         borderRadius:30
       },
       input: {
