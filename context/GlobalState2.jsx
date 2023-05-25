@@ -1,4 +1,5 @@
 import { createContext, useContext, useReducer, useState, useEffect } from "react";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import AppReducer from './AppReducer'
 export const Context = createContext();
 const initialState = {
@@ -12,9 +13,10 @@ export const useGlobalState = () => {
 
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer ,initialState,
-    ()=>{
-    const localData =localStorage.getItem('transactions')
-    return localData ? JSON.parse(localData) : initialState
+     ()=>{
+     
+        const localData =  localStorage.getItem('transactions')
+       return localData ? JSON.parse(localData) : initialState 
   });
 
   useEffect(()=>{

@@ -18,11 +18,12 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.harleyurquijo.balance",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "package": "com.harleyurquijo.balance"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"

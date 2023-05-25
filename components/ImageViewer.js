@@ -7,18 +7,20 @@ export default function ImageViewer() {
   const {deleteTransaction} = useGlobalState()
 
   return (
-    <View style={styles.container}>
-      {transactions.map(transaction => (
-          <View key={transaction.id} style={styles.row}>
-            <Text>{transaction.description}</Text>
-            <Text>{transaction.monto}</Text>
-            <Button 
-            title='x'
-            onPress={()=>deleteTransaction(transaction.id)}
-            > </Button>
-          </View>
-        ))}
-    </View>
+    <>
+      <View style={styles.container}>
+        {transactions.map(transaction => (
+            <View key={transaction.id} style={styles.row}>
+              <Text>{transaction.description}</Text>
+              <Text>{transaction.monto}</Text>
+              <Button 
+              title='x'
+              onPress={()=>deleteTransaction(transaction.id)}
+              > </Button>
+            </View>
+          ))}
+      </View>    
+    </>
   );
 }
 

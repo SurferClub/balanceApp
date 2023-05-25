@@ -5,8 +5,7 @@ import { VictoryPie,VictoryLabel } from 'victory'
 
 function ExpenseChart() {
     const {transactions} =  useGlobalState()
-    const total = transactions.reduce((acc,transaction)=>(acc += transaction.amount))
-    
+  
     const totalIncome = 
         transactions
             .filter((transaction)=> transaction.monto > 0)
@@ -27,8 +26,8 @@ function ExpenseChart() {
     <VictoryPie 
         colorScale={["#e74c3c", "#2ecc71"]}
     data={[
-        {x: 'Expenses', y: totalExpensesPercentage},
-        {x: 'Incomes', y: totalIncomePercentage},
+        {x: 'Expenses', y: totalExpensesPercentage || 0},
+        {x: 'Incomes', y: totalIncomePercentage || 0},
     ]}
         animate={{
             duration: 200

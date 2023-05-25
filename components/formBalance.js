@@ -29,8 +29,7 @@ export default function Balance() {
   return (
     <>
       <View style={styles.container}>
-{/*       <Text>{JSON.stringify(data)}</Text> 
- */}       <TextInput
+       <TextInput
             style={styles.input}
             value={description}
             onChangeText={setDescription}
